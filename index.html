@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Chotu ❤️</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at center, #fff0f3 0%, #ffd6e0 100%);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      padding: 16px;
+      overflow-x: hidden;
+    }
+
+    .card {
+      background: #ffffff;
+      padding: 34px 20px 24px;
+      border-radius: 28px;
+      box-shadow: 0 18px 40px rgba(255, 75, 110, 0.18);
+      max-width: 360px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      z-index: 100;
+    }
+
+    .back-arrow {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: #f1f3f5;
+      border: 1px solid #dee2e6;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 18px;
+      color: #333333;
+      z-index: 200;
+      user-select: none;
+    }
+    .back-arrow:active {
+      transform: scale(0.92);
+      background: #e9ecef;
+    }
+
+    .big-icon {
+      font-size: 56px;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+
+    h1 {
+      color: #e63946;
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #555555;
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 22px;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 12px;
+    }
+
+    .action-btn {
+      background: linear-gradient(135deg, #ff4d6d, #e63946);
+      color: #ffffff;
+      border: none;
+      padding: 13px 20px;
+      border-radius: 30px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 5px 18px rgba(230, 57, 70, 0.35);
+      width: 100%;
+      display: block;
+    }
+
+    .btn-secondary {
+      background: #f1f3f5;
+      color: #6c757d;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    .action-btn:active {
+      transform: scale(0.97);
+    }
+
+    /* Scene Image Frame */
+    .scene-img-box {
+      width: 100%;
+      max-height: 250px;
+      border-radius: 18px;
+      overflow: hidden;
+      margin: 6px auto 14px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.1);
+    }
+
+    .scene-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Screen management */
+    #page1 { display: block; }
+    #page2 { display: none; }
+    #page3 { display: none; }
+    #page4 { display: none; }
+
+    .falling-petal {
+      position: fixed;
+      top: -10%;
+      user-select: none;
+      pointer-events: none !important;
+      z-index: 10;
+      animation: fallDown linear forwards;
+    }
+
+    @keyframes fallDown {
+      to {
+        transform: translateY(115vh) rotate(540deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+
+    <!-- PAGE 1: Teaser Envelope -->
+    <div id="page1">
+      <span class="big-icon">💌</span>
+      <h1>Hey Chotu...</h1>
+      <p>I have something special from the heart to tell you.<br>Can you please open it?</p>
+      <button class="action-btn" id="btn-to-page2" type="button">Tap to Open Letter ✨</button>
+    </div>
+
+    <!-- PAGE 2: Apology Message with YES & NO -->
+    <div id="page2">
+      <button class="back-arrow" id="back-to-page1" type="button">←</button>
+      <span class="big-icon">🥺👉👈</span>
+      <h1>I am sorry Chotu</h1>
+      <p>I never meant to hurt you or make you upset. Your smile means the whole world to me.<br><br>Will you forgive me?</p>
+      <div class="btn-row">
+        <button class="action-btn btn-secondary" id="btn-say-no" type="button">No 🥺</button>
+        <button class="action-btn" id="btn-to-page3" type="button">Forgive Me ❤️</button>
+      </div>
+    </div>
+
+    <!-- PAGE 3: When She Clicks YES (Happy Image with Kneeling Bouquet) -->
+    <div id="page3">
+      <button class="back-arrow" id="back-to-page2-from-3" type="button">←</button>
+      
+      <div class="scene-img-box">
+        <img src="happy.png" alt="Happy Kneeling with Fresh Flowers">
+      </div>
+
+      <h1>Thank You, Chotu! 🌻🌹</h1>
+      <p style="margin-bottom: 0;">These sunflowers & roses are just for you.<br>I promise to make you smile every day!</p>
+    </div>
+
+    <!-- PAGE 4: When She Clicks NO (Sad Image with Dropped Rotten Flowers) -->
+    <div id="page4">
+      <button class="back-arrow" id="back-to-page2-from-4" type="button">←</button>
+
+      <div class="scene-img-box">
+        <img src="sad.png" alt="Sad with Dropped Rotten Flowers">
+      </div>
+
+      <h1 style="color: #6c757d;">My Heart is Broken... 🥀</h1>
+      <p>Without your smile, everything feels incomplete.<br>Will you please give me one chance?</p>
+      
+      <button class="action-btn" id="btn-give-chance" type="button">Please give me one more chance 🥺</button>
+    </div>
+
+  </div>
+
+  <script>
+    function switchPage(pageNumber) {
+      document.getElementById('page1').style.display = 'none';
+      document.getElementById('page2').style.display = 'none';
+      document.getElementById('page3').style.display = 'none';
+      document.getElementById('page4').style.display = 'none';
+
+      document.getElementById('page' + pageNumber).style.display = 'block';
+    }
+
+    document.getElementById('btn-to-page2').addEventListener('click', function() {
+      switchPage(2);
+    });
+
+    document.getElementById('back-to-page1').addEventListener('click', function() {
+      switchPage(1);
+    });
+
+    // YES clicked -> Loads happy.png image with flowers celebration
+    document.getElementById('btn-to-page3').addEventListener('click', function() {
+      switchPage(3);
+      triggerCelebration();
+    });
+
+    document.getElementById('back-to-page2-from-3').addEventListener('click', function() {
+      switchPage(2);
+    });
+
+    // NO clicked -> Loads sad.png image
+    document.getElementById('btn-say-no').addEventListener('click', function() {
+      switchPage(4);
+    });
+
+    document.getElementById('back-to-page2-from-4').addEventListener('click', function() {
+      switchPage(2);
+    });
+
+    // One more chance clicked -> Takes her to the happy celebration screen
+    document.getElementById('btn-give-chance').addEventListener('click', function() {
+      switchPage(3);
+      triggerCelebration();
+    });
+
+    function triggerCelebration() {
+      const symbols = ['🌹', '🌻', '🌸', '✨', '❤️'];
+      for (let i = 0; i < 35; i++) {
+        setTimeout(function() {
+          const petal = document.createElement('div');
+          petal.className = 'falling-petal';
+          petal.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+          petal.style.left = Math.random() * 92 + 'vw';
+          petal.style.animationDuration = (2.2 + Math.random() * 2) + 's';
+          petal.style.fontSize = (16 + Math.random() * 16) + 'px';
+          document.body.appendChild(petal);
+
+          setTimeout(function() { petal.remove(); }, 4200);
+        }, i * 90);
+      }
+    }
+  </script>
+</body>
+</html>
